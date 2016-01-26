@@ -47,10 +47,6 @@ class PageProvider():
         from pages.desktop.support_home_page import SupportHomePage
         return self._go_to_page(SupportHomePage(self.base_url, self.selenium), username, password)
 
-    def new_question_page(self, username=None, password=None):
-        from pages.desktop.questions_page import AskNewQuestionsPage
-        return self._go_to_page(AskNewQuestionsPage(self.base_url, self.selenium), username, password)
-
     def questions_page(self, username=None, password=None):
         from pages.desktop.questions_page import QuestionsPage
         return self._go_to_page(QuestionsPage(self.base_url, self.selenium), username, password)
@@ -68,3 +64,7 @@ class PageProvider():
     def new_kb_article_page(self, username, password):
         from pages.desktop.knowledge_base_new_article import KnowledgeBaseNewArticle
         return self._go_to_page_with_login_redirect(KnowledgeBaseNewArticle(self.base_url, self.selenium), username, password)
+
+    def new_question_page(self, username, password):
+        from pages.desktop.questions_page import AskNewQuestionsPage
+        return self._go_to_page_with_login_redirect(AskNewQuestionsPage(self.base_url, self.selenium), username, password)

@@ -10,7 +10,6 @@ from pages.desktop.page_provider import PageProvider
 
 class TestQuestions:
 
-    @pytest.mark.native
     def test_that_posting_question_works(self, base_url, selenium, variables):
         """Posts a question to /questions"""
         user = variables['users']['default']
@@ -18,9 +17,8 @@ class TestQuestions:
         q_to_ask = "automation test question %s" % (timestamp)
         q_details = "This is a test. %s" % (timestamp)
 
-        # go to the /questions/new page and log in
-        ask_new_questions_page = PageProvider(base_url, selenium).new_question_page(
-            user['username'], user['password'])
+        # go to the /questions/new?step=product&dwft_new_aaq=1 page and log in
+        ask_new_questions_page = PageProvider(base_url, selenium).new_question_page(user['username'], user['password'])
 
         # post a question
         ask_new_questions_page.click_firefox_product_link()

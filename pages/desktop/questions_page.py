@@ -116,7 +116,7 @@ class AskNewQuestionsPage(Base):
     Child class of Questions Page
     """
     _page_title = 'Ask a Question | Mozilla Support'
-    _page_url = '/en-US/questions/new'
+    _page_url = '/en-US/questions/new?step=product&dwft_new_aaq=1'
     _firefox_product_first_link_locator = (By.CSS_SELECTOR, '#product-picker li:nth-child(1) > a.cf > span.title')
     _category_prob_first_link_locator = (By.CSS_SELECTOR, 'ul.select-one > li > a')
     _type_question_box_locator = (By.NAME, 'search')

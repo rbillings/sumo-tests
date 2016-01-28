@@ -17,8 +17,9 @@ class TestQuestions:
         q_to_ask = "automation test question %s" % (timestamp)
         q_details = "This is a test. %s" % (timestamp)
 
-        # go to the /questions/new?step=product&dwft_new_aaq=1 page and log in
-        ask_new_questions_page = PageProvider(base_url, selenium).new_question_page(user['username'], user['password'])
+        # log in and go to the /questions/new?step=product&dwft_new_aaq=1 page
+        ask_new_question = PageProvider(base_url, selenium).new_question_page(
+            user['username'], user['password'])
 
         # post a question
         ask_new_questions_page.click_firefox_product_link()

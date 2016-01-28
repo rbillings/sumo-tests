@@ -12,6 +12,10 @@ class QuestionsPage(Base):
     """
     'Ask a Question' landing page.
     """
+    @property
+    def _page_title(self):
+        return self.format_page_title('Support Forum | Mozilla Support')
+
     _page_title = 'Support Forum | Mozilla Support'
     _page_url = '/en-US/questions'
 
@@ -110,11 +114,15 @@ class QuestionsPage(Base):
             return self._root_element.find_element(*self._question_link_locator).text
 
 
-class AskNewQuestionsPage(Base):
+class AskNewQuestionsPage():
     """
     'Ask a New Question' page.
     Child class of Questions Page
     """
+    @property
+    def _page_title(self):
+        return self.format_page_title('Ask a Question | Mozilla Support')
+
     _page_title = 'Ask a Question | Mozilla Support'
     _page_url = '/en-US/questions/new?step=product&dwft_new_aaq=1'
     _firefox_product_first_link_locator = (By.CSS_SELECTOR, '#product-picker li:nth-child(1) > a.cf > span.title')
